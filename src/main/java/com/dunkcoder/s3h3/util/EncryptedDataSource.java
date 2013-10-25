@@ -7,6 +7,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+@SuppressWarnings("restriction")
 public class EncryptedDataSource extends DriverManagerDataSource {
 
     @Override
@@ -32,7 +33,7 @@ public class EncryptedDataSource extends DriverManagerDataSource {
     }
 
     public static void main(String[] args) {
-        String password = "root";
+        String password = "passw0rd";
         BASE64Encoder encoder = new BASE64Encoder();
         String encryptedPassword = encoder.encode(password.getBytes());
         System.out.println(encryptedPassword);
