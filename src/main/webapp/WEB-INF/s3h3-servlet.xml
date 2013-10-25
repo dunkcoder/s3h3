@@ -15,7 +15,7 @@
 
     <context:annotation-config />
     <context:component-scan base-package="com.dunkcoder.s3h3" />
-    
+
     <bean id="jspViewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
@@ -33,11 +33,16 @@
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
         p:location="classpath:jdbc.properties" />
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-        destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
-        p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"
-        p:password="${jdbc.password}" />
+    <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+        destroy-method="close" p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.databaseurl}" 
+        p:username="${jdbc.username}" p:password="${jdbc.password}" /> -->
 
+    <bean id="dataSource" class="com.dunkcoder.s3h3.util.EncryptedDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.databaseurl}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
 
     <bean id="sessionFactory"
         class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -65,5 +70,5 @@
         class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    
+
 </beans>
