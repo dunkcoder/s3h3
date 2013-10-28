@@ -7,7 +7,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-//reassign JRE System Library into BuildPath will fix all warnings on this class.
+// reassign JRE System Library into BuildPath will fix all warnings on this class
 public class EncryptedDataSource extends DriverManagerDataSource {
 
     @Override
