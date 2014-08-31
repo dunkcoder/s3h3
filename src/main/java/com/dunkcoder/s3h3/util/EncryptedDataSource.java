@@ -33,7 +33,7 @@ public class EncryptedDataSource extends DriverManagerDataSource {
     }
 
     public static void main(String[] args) {
-        String password = "Envisi0n"; // pa55w0rd
+        String password = "pa55w0rd"; // pa55w0rd
         BASE64Encoder encoder = new BASE64Encoder();
         String encryptedPassword = encoder.encode(password.getBytes());
         System.out.println(encryptedPassword);
