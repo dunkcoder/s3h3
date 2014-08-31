@@ -8,4 +8,7 @@ s3h3
 copy irontracksql.jar ${S3H3_HOME}\WEB-INF\lib\
 copy irongrid.properties ${S3H3_HOME}\WEB-INF\lib\
 xcopy lib\*.* ${S3H3_HOME}\WEB-INF\lib\lib\ /s/e
+
+java -jar irontracksql.jar
 ```
+##### config db parameters in jdbc.properties
